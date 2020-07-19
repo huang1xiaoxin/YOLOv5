@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="YOLOV5目标检测"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        tools:ignore="MissingConstraints" />
+
+    <com.hx.yolov5.CircleImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        app:createBorder="true"
+        app:layout_constraintBottom_toTopOf="@+id/right_layout"
+        app:layout_constraintTop_toBottomOf="@id/text_desc"
+        app:mBorderColor="@color/bordercolor"
+        app:mBorderWidth="4dp"
+        app:mRoundRadius="20dp"
+        app:mShapeType="rounded_rect"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/left_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@id/relative_layout"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/nmstextView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="NMS"
+            android:textSize="14sp" />
+
+        <SeekBar
+            android:id="@+id/nms_seek"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:max="100"
+            android:progress="70" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/right_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@id/left_linearlayout"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/txtThresh"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="Threshold"
+            android:textSize="14sp" />
+
+        <SeekBar
+            android:id="@+id/threshold_seek"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:max="100"
+            android:progress="30" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.hx.yolov5.CircleImageView
+            android:id="@+id/picture"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/picture"
+            app:createBorder="true"
+            app:mBorderColor="@color/bordercolor"
+            app:mBorderWidth="4dp"
+            app:mShapeType="circle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/picture"
+            android:width="45dp"
+            android:text="相册"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <com.hx.yolov5.CircleImageView
+            android:id="@+id/detect"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/detect"
+            app:createBorder="true"
+            app:mBorderColor="@color/bordercolor"
+            app:mBorderWidth="4dp"
+            app:mShapeType="circle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detect"
+            android:layout_centerHorizontal="true"
+            android:width="45dp"
+            android:text="识别"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <com.hx.yolov5.CircleImageView
+            android:id="@+id/camera"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/camera"
+            app:createBorder="true"
+            app:mBorderColor="@color/bordercolor"
+            app:mBorderWidth="4dp"
+            app:mShapeType="circle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/camera"
+            android:layout_alignParentEnd="true"
+            android:width="45dp"
+            android:text="拍照"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintLeft_toLeftOf="@id/imageView"
+        app:layout_constraintRight_toRightOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="@id/imageView"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

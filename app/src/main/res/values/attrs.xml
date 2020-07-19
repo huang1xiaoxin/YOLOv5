@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleButton">
+        <attr name="circle_color" format="color" />
+    </declare-styleable>
+    <!-- CircleImageView的属性 -->
+    <declare-styleable name="CircleImageView">
+        <attr name="mTileX" />
+        <attr name="mTileY" />
+        <attr name="createBorder" format="boolean" />
+        <attr name="mBorderColor" format="color" />
+        <attr name="mBorderWidth" format="dimension" />
+        <attr name="mShapeType" />
+        <attr name="mRoundRadius" format="dimension" />
+    </declare-styleable>
+    <attr name="mShapeType">
+        <enum name="rounded_rect" value="1" />
+        <enum name="circle" value="2" />
+    </attr>
+    <attr name="mTileX">
+        <enum name="clamp" value="0" />
+        <enum name="mirror" value="1" />
+        <enum name="repeat" value="2" />
+    </attr>
+    <attr name="mTileY">
+        <enum name="clamp" value="0" />
+        <enum name="mirror" value="1" />
+        <enum name="repeat" value="2" />
+    </attr>
+</resources>
