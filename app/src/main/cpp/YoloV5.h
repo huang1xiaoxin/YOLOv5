@@ -14,6 +14,7 @@ namespace cv{
     }Size;
 }
 
+
 typedef struct {
     std::string name;
     int stride;

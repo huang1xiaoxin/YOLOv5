@@ -9,6 +9,7 @@ public class Box {
     public float x0,y0,x1,y1;
     private int label;
     private float score;
+    //物体识别的标签
     private static String[] labels={"person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
             "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
             "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
@@ -26,7 +27,7 @@ public class Box {
         this.label = label;
         this.score = score;
     }
-
+    //返回举行
     public RectF getRect(){
         return new RectF(x0,y0,x1,y1);
     }

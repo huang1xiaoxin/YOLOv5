@@ -123,4 +123,5 @@ void YoloV5::nms(std::vector<BoxInfo> &input_boxes, float NMS_THRESH) {
             }
         }
     }
+
 }

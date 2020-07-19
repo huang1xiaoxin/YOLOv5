@@ -18,7 +18,7 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 {
     ncnn::destroy_gpu_instance();
 }
-
+//初始化模型
 extern "C" JNIEXPORT void JNICALL
 Java_com_hx_yolov5_YOLOv5_init(JNIEnv* env, jclass, jobject assetManager) {
     if(YoloV5::detector == nullptr){
@@ -26,7 +26,7 @@ Java_com_hx_yolov5_YOLOv5_init(JNIEnv* env, jclass, jobject assetManager) {
         YoloV5::detector = new YoloV5(mgr,"yolov5.param","yolov5.bin");
     }
 }
-
+//进行目标检测
 extern "C" JNIEXPORT jobjectArray JNICALL
 Java_com_hx_yolov5_YOLOv5_detect(JNIEnv* env, jclass, jobject image, jdouble threshold, jdouble nms_threshold) {
     auto result = YoloV5::detector->detect(env,image,threshold,nms_threshold);

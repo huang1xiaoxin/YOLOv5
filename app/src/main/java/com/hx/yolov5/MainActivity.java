@@ -276,6 +276,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.detect://识别
                 if (imageBitmap == null) {
+                    Toast.makeText(this,"请选择图片！！",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 showLoading();
@@ -311,11 +312,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hideLoading();
             }
         });
-
-
     }
 
     //初始化加载框
+    @SuppressLint("ResourceAsColor")
     private void initLoadingView() {
         //加载按钮的属性
         LinearLayout.LayoutParams proLayoutParams = new LinearLayout.LayoutParams(
@@ -328,6 +328,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         TextView textView = new TextView(getApplicationContext());
         textView.setGravity(Gravity.CENTER);
+        textView.setTextColor(R.color.textcolor);
         textView.setText("识别中...");
         textView.setLayoutParams(textParams);
         mLoadingLinearLayout.addView(progressBar, proLayoutParams);
@@ -346,6 +347,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 隐藏加载框
      */
     private void hideLoading() {
+        if (imageBitmap!=null){
+            imageBitmap=null;
+        }
         if (mLoadingLinearLayout.getVisibility() == View.VISIBLE) {
             mLoadingLinearLayout.setVisibility(View.GONE);
         }

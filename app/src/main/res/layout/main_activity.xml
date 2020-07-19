@@ -174,7 +174,7 @@
     <LinearLayout
         android:id="@+id/loading_layout"
         android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/imageView"
